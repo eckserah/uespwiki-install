@@ -1,5 +1,5 @@
 <?php
-
+require './extensions/UespCustomCode/includes/UespGlobalFunctions.php';
 class SiteCustomCodeHooks
 {
 	#region Public Functions
@@ -312,7 +312,7 @@ $extra";
 		self::SetupUespFavIcons($out);
 		self::SetupUespLongitudeAds($out);
 		self::SetupUespTwitchEmbed($out);
-
+		$out->addModules('ext.UespCustomCode.search.suggest');
 		return true;
 	}
 
@@ -392,3 +392,5 @@ $extra";
 	}
 	#endregion
 }
+
+//require_once('UespGlobalFunctions.php');
