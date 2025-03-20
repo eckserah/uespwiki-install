@@ -54,7 +54,7 @@ function uespMobileInit (&$title, &$article, &$output, &$user, $request, $mediaW
 	if (!$match) return;
 	
 	$domainIsMobile = false;
-	if ($matches[1] == "m" || $matches[2] == "m") $domainIsMobile = true;
+	if ($matches[1] == "m" || (count($matches) > 2 && $matches[2] == "m")) $domainIsMobile = true;
 	
 	$shouldRedirectToMobile  = !$domainIsMobile && $displayMobile;
 	$shouldRedirectToDesktop = false;
