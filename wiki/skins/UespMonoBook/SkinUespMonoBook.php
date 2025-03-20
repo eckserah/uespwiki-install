@@ -28,7 +28,8 @@
  * Inherit main code from SkinTemplate, set the CSS and template filter.
  * @ingroup Skins
  */
-require_once "skins/MonoBook/SkinMonoBook.php";
+
+require_once "skins/MonoBook/includes/SkinMonoBook.php";
 
 class SkinUespMonoBook extends SkinMonoBook {
 	/** Using MonoBook. */

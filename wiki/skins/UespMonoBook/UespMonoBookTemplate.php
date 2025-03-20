@@ -27,7 +27,7 @@
 /**
  * @ingroup Skins
  */
-require_once "skins/MonoBook/MonoBookTemplate.php";
+require_once "skins/MonoBook/includes/MonoBookTemplate.php";
 
 class UespMonoBookTemplate extends MonoBookTemplate {
 	function customBox( $bar, $cont ) {
@@ -104,20 +104,22 @@ class UespMonoBookTemplate extends MonoBookTemplate {
 		</div><?php
 	}
 
-	function searchBox() {
-?>
-	<div id="p-search" class="portlet" role="search">
-		<h3><label for="searchInput"><?php $this->msg( 'search' ) ?></label></h3>
-		<div style="background-color: white; height: 12px;" id="searchBody" class="pBody">
-			<form action="<?php $this->text( 'wgScript' ) ?>" id="searchform">
-				<input type='hidden' name="title" value="<?php $this->text( 'searchtitle' ) ?>"/>
-				<input name="search" title="Search UESPWiki [f]" accesskey="f" style="-webkit-appearance: none; background-color: transparent; width: 90%; margin: 0; font-size: 13px; border: medium none; outline: medium none; direction: ltr; left: 1px; margin: 0; padding: .2em 0 .2em .2em; position: absolute; top: 18px; height: 16px;" id="searchInput" />
-				<button style="background-color: transparent; background-image: none; border: medium none; cursor: pointer; margin: 0; padding: .2em .4em .2em 0; position: absolute; right: 0; top: 18px; width: 10%;" id="searchButton" title="Search UESP for this text" name="button" type="submit">
-					<img width="12" height="13" alt="Search" src="/w/skins/UespMonoBook/search-icon.png">
-				</button>
-			</form>
-		</div>
-	</div>
-<?php
+	function getSearchBox() {
+	$html = '';
+	
+	$html .= Html::openElement( 'div', [ 'id' => 'p-search', 'class' => 'portlet', 'role' => 'search' ]);
+	$html .= Html::rawElement( 'h3' , [], Html::rawElement( 'label' , [ 'for' => 'searchInput' ], $this->getMsg( 'search' )->parse() )); 
+	$html .= Html::openElement( 'div', [ 'id' => 'searchBody', 'class' => 'pBody', 'style' => 'background-color: white; height: 12px;'] );
+	$html .= Html::rawElement( 'form', [ 'action' => $this->get( 'wgScript' ), 'id' => 'searchform' ], 
+		Html::hidden( 'title', $this->get( 'searchtitle' ) ) .
+		Html::element( 'input', [ 'title' => 'Search UESPWiki [f]', 'accesskey' => 'f', 'id' => 'searchInput', 'style' => '-webkit-appearance: none; background-color: transparent; width: 90%; margin: 0; font-size: 13px; border: medium none; outline: medium none; direction: ltr; left: 1px; margin: 0; padding: .2em 0 .2em .2em; position: absolute; top: 18px; height: 16px;' ]) .
+		Html::rawElement( 'button', [ 'id' => 'searchButton', 'title' => 'Search UESP for this text', 'name' => 'button', 'type' => 'submit', 'style' => 'background-color: transparent; background-image: none; border: medium none; cursor: pointer; margin: 0; padding: .2em .4em .2em 0; position: absolute; right: 0; top: 18px; width: 10%;' ] ,
+			Html::element( 'img', [ 'width' => 12, 'height' => 13, 'alt' => 'Search', 'src' => '/w/skins/UespMonoBook/search-icon.png'])
+		)
+	);
+	$html .= Html::closeElement( 'div' );
+	$html .= Html::closeElement( 'div' );
+	
+	return $html;
 	}
 } // end of class
