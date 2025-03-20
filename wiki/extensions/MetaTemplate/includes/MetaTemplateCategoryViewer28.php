@@ -3,7 +3,7 @@
 class MetaTemplateCategoryViewer28 extends MetaTemplateCategoryViewer
 {
 	#region Public Override Functions
-	public function addImage($title, $sortkey, $pageLength, $isRedirect = false)
+	public function addImage(Title $title, $sortkey, $pageLength, $isRedirect = false)
 	{
 		#RHshow(__METHOD__, $title->getPrefixedText());
 		if ($this->showGallery && isset(self::$templates[self::CV_FILE])) {
