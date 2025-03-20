@@ -17,16 +17,26 @@ $UESP_EXT_OTHER = 2;		// Needs a manual upgrade
 $UESP_EXT_NONE = 3;			// Doesn't need an upgrade
 $UESP_EXT_IGNORE = 4;		// Don't do anything
 
+$UESP_SKIN_INFO = [
+	"MinervaNeue" => $UESP_EXT_UPGRADE,
+	"MonoBook" => $UESP_EXT_DEFAULT,
+	"Vector" => $UESP_EXT_DEFAULT,
+	"UespMonoBook" => $UESP_EXT_NONE,
+	"UespVector" => $UESP_EXT_NONE,
+];	
+
 $UESP_EXTENSION_INFO = [
 	"AbuseFilter" => $UESP_EXT_UPGRADE,
 	"AntiSpoof" => $UESP_EXT_UPGRADE,
 	"AudioButton" => $UESP_EXT_OTHER,
+	"Backup" => $UESP_EXT_IGNORE,
 	"CharInsert" => $UESP_EXT_UPGRADE,
 	"CheckUser" => $UESP_EXT_UPGRADE,
 	"CirrusSearch" => $UESP_EXT_UPGRADE,
 	"Cite" => $UESP_EXT_DEFAULT,
 	"CiteThisPage" => $UESP_EXT_DEFAULT,
 	"ConfirmEdit" => $UESP_EXT_DEFAULT,
+	"CSS" => $UESP_EXT_UPGRADE,
 	"DaedricFont" => $UESP_EXT_NONE,
 	"DailyEdits" => $UESP_EXT_NONE,
 	"DeleteBatch" => $UESP_EXT_UPGRADE,
@@ -39,6 +49,7 @@ $UESP_EXTENSION_INFO = [
 	"Elastica" => $UESP_EXT_UPGRADE,
 	"EmbedVideo" => $UESP_EXT_OTHER,		//1.29
 	"EsoCharData" => $UESP_EXT_NONE,
+	"FakeGraph" => $UESP_EXT_NONE,
 	"FalmerFont" => $UESP_EXT_NONE,
 	"Gadgets" => $UESP_EXT_DEFAULT,
 	"Graph" => $UESP_EXT_UPGRADE,
@@ -53,6 +64,7 @@ $UESP_EXTENSION_INFO = [
 	"MediaFunctions" => $UESP_EXT_UPGRADE,
 	"MetaTemplate" => $UESP_EXT_NONE,
 	"MobileFrontend" => $UESP_EXT_UPGRADE,
+	"Mpdf" => $UESP_EXT_IGNORE,
 	"MwEmbedSupport" => $UESP_EXT_OTHER,
 	"NativeSvgHandler" => $UESP_EXT_NONE,		// Doesn't have versions available before 1.35
 	"NSInfo" => $UESP_EXT_NONE,
@@ -82,7 +94,7 @@ $UESP_EXTENSION_INFO = [
 	"TorBlock" => $UESP_EXT_UPGRADE,
 	"UespBreadCrumb" => $UESP_EXT_NONE,
 	"UespCustomCode" => $UESP_EXT_NONE,
-	"UespCustomNew" => $UESP_EXT_NONE,
+	//"UespCustomNew" => $UESP_EXT_NONE,
 	"UespEsoData" => $UESP_EXT_NONE,
 	"UespEsoItemLink" => $UESP_EXT_NONE,
 	"UespEsoSkills" => $UESP_EXT_NONE,
@@ -95,11 +107,10 @@ $UESP_EXTENSION_INFO = [
 	"UsersEditCount" => $UESP_EXT_NONE,
 	"WikiEditor" => $UESP_EXT_DEFAULT,
 	"WikiTextLoggedInOut" => $UESP_EXT_UPGRADE,
-		
-	"FakeGraph" => $UESP_EXT_IGNORE,
+	"WikiAppApi" => $UESP_EXT_NONE,
 ];
 
-if ($UESP_UPGRADING_MW == 1) return;
+if (isset($UESP_UPGRADING_MW) && $UESP_UPGRADING_MW == 1) return;
 
 wfLoadExtension( 'AbuseFilter' );
 $wgAbuseFilterEmergencyDisableThreshold['default'] = 0.5;
@@ -151,7 +162,18 @@ wfLoadExtension( 'LabeledSectionTransclusion' );
 require_once( "$IP/extensions/MediaFunctions/MediaFunctions.php" );
 
 wfLoadExtension( 'MobileFrontend' );
-$wgMFRemovableClasses['base'] = array_diff($wgMFRemovableClasses['base'], ['.navbox']);
+//$wgMFRemovableClasses['base'] = array_diff($wgMFRemovableClasses['base'], ['.navbox']);
+$wgMFRemovableClasses = array(
+  // These rules will be used for all transformations in the beta channel of the site
+    "beta" => array(),
+  // These rules will be used for all transformations
+    "base" => array(
+        ".vertical-navbox",
+        ".nomobile"
+	)
+);
+
+
 wfLoadSkin( 'MinervaNeue' );
 $wgMFDefaultSkinClass = 'SkinMinervaNeue';
 $wgMobileFrontendLogo = $wgScriptPath . '/extensions/MobileFrontend/stylesheets/images/uesp-mobile-logo.png';
