@@ -8,9 +8,9 @@
 # dev.uesp.net host detection
 $uespIsDev = false;
 
-if ($_SERVER['HTTP_HOST'] == "dev.uesp.net" || $_SERVER['HTTP_HOST'] == "dev.m.uesp.net" || $_SERVER['HTTP_HOST'] == "devit.uesp.net" ||
+if (isset($_SERVER['HTTP_HOST']) && ($_SERVER['HTTP_HOST'] == "dev.uesp.net" || $_SERVER['HTTP_HOST'] == "dev.m.uesp.net" || $_SERVER['HTTP_HOST'] == "devit.uesp.net" ||
 		$_SERVER['HTTP_HOST'] == "devar.uesp.net" || $_SERVER['HTTP_HOST'] == "devpt.uesp.net" || $_SERVER['HTTP_HOST'] == "devfr.uesp.net" ||
-		$_SERVER['HTTP_HOST'] == "deven.uesp.net")
+		$_SERVER['HTTP_HOST'] == "deven.uesp.net"))
 {
 	$uespIsDev = true;
 }
@@ -46,7 +46,7 @@ $UESP_MOBILE_SERVERS = array(
 		'dev.m.uesp.net',
 );
 
-if (in_array($_SERVER['HTTP_HOST'], $UESP_MOBILE_SERVERS, TRUE)) 
+if (isset($_SERVER['HTTP_HOST']) && in_array($_SERVER['HTTP_HOST'], $UESP_MOBILE_SERVERS, TRUE)) 
 {
 	$uespIsMobile = true;
 }
@@ -70,7 +70,7 @@ $UESP_APP_SERVERS = array(
 		'dev.app.uesp.net',
 );
 
-if (in_array($_SERVER['HTTP_HOST'], $UESP_APP_SERVERS, TRUE)) 
+if (isset($_SERVER['HTTP_HOST']) && (in_array($_SERVER['HTTP_HOST'], $UESP_APP_SERVERS, TRUE))) 
 {
 	$uespIsApp = true;
 	$uespIsMobile = true;
@@ -85,7 +85,7 @@ $uespLanguageSuffix = "";
 # TODO: More robust language detection
 $wgLanguageCode = "en";
 
-$host = $_SERVER['HTTP_HOST'];
+$host = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : "";
 
 if ($host == "pt.uesp.net" || $host == "pt.m.uesp.net" || $host == "pt.app.uesp.net" || $host == "apppt.uesp.net" || $host == "devpt.uesp.net")
 {
@@ -150,7 +150,7 @@ if (php_sapi_name() == "cli") {
 			{
 				$option = substr( $arg, 2 );
 				$bits = explode( '=', $option, 2 );
-				if ($bits[1] == null) $bits[1] = true;
+				if (!isset($bits[1]) || $bits[1] == null) $bits[1] = true;
 				$args[$bits[0]] = $bits[1];
 			}
 		}
@@ -161,7 +161,7 @@ if (php_sapi_name() == "cli") {
 	
 	$uespArgs = uespParseCommandArgs();
 	
-	if ($uespArgs["uesplang"] != null)
+	if (isset($uespArgs["uesplang"]) && $uespArgs["uesplang"] != null)
 	{
 		$lang = $uespArgs["uesplang"];
 		if ($lang == null || $lang == "") $lang = "en";
@@ -178,7 +178,7 @@ if (php_sapi_name() == "cli") {
 		$wgServer = "https://" . $wgLanguageCode . ".uesp.net";
 	}
 	
-	if ($uespArgs["uespdev"])
+	if (isset($uespArgs["uespdev"]) && $uespArgs["uespdev"])
 	{
 		$wgServer = "https://dev" . $wgLanguageCode . ".uesp.net";
 		if ($wgLanguageCode == "en") $wgServer = "https://dev.uesp.net"; 
@@ -186,7 +186,7 @@ if (php_sapi_name() == "cli") {
 		if (defined('STDERR')) fwrite(STDERR, "\tForcing UESP dev wiki!\n");
 	}
 	
-	if ($uespArgs["uespbackup"])
+	if (isset($uespArgs["uespbackup"]) && $uespArgs["uespbackup"])
 	{
 		$uespIsBackup1 = true;
 		if (defined('STDERR')) fwrite(STDERR, "\tForcing UESP backup1 wiki!\n");
