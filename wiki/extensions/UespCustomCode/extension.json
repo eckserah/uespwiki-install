@@ -54,6 +54,20 @@
 				"desktop",
 				"mobile"
 			]
+		},
+		"ext.UespCustomCode.search.suggest": {
+			"position": "top",
+			"scripts": [
+				"modules/uespSearchSuggest.js"
+			],
+			"targets": [
+				"desktop",
+				"mobile"
+			],
+			"dependencies": [
+				"mediawiki.searchSuggest"
+			],
+			"remoteBasePath": "/w/extensions/UespCustomCode"
 		}
 	},
 	"AvailableRights": [
