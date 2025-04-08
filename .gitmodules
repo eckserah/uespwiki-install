@@ -7,3 +7,6 @@
 [submodule "wiki/extensions/UespCustomCode"]
 	path = wiki/extensions/UespCustomCode
 	url = https://github.com/uesp/uesp-wikicustomcode.git
+[submodule "wiki/extensions/UsersEditCount"]
+	path = wiki/extensions/UsersEditCount
+	url = https://github.com/uesp/uesp-wiki-usereditcount.git
