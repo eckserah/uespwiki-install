@@ -41,3 +41,6 @@
 [submodule "wiki/extensions/UespGameMap"]
 	path = wiki/extensions/UespGameMap
 	url = https://github.com/uesp/uesp-wikigamemap
+[submodule "wiki/extensions/MetaTemplate"]
+	path = wiki/extensions/MetaTemplate
+	url = https://github.com/uesp/uesp-wikimetatemplate
