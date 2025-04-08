@@ -35,3 +35,6 @@
 [submodule "wiki/extensions/UespEsoItemLink"]
 	path = wiki/extensions/UespEsoItemLink
 	url = https://github.com/uesp/uesp-wiki-esoitemlink
+[submodule "wiki/extensions/UespEsoSkills"]
+	path = wiki/extensions/UespEsoSkills
+	url = https://github.com/uesp/uesp-wiki-esoskills
