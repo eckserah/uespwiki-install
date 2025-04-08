@@ -32,3 +32,6 @@
 	path = wiki/extensions/UespLegendsCards
 	url = https://github.com/uesp/uesp-legendcards
 
+[submodule "wiki/extensions/UespEsoItemLink"]
+	path = wiki/extensions/UespEsoItemLink
+	url = https://github.com/uesp/uesp-wiki-esoitemlink
