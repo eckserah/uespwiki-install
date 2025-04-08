@@ -1,0 +1,6 @@
+[submodule "wiki/skins/UespMonoBook"]
+	path = wiki/skins/UespMonoBook
+	url = https://github.com/uesp/wikiuespmonobook.git
+[submodule "wiki/skins/UespVector"]
+	path = wiki/skins/UespVector
+	url = https://github.com/uesp/wikiuespvector.git
