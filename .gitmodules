@@ -10,3 +10,6 @@
 [submodule "wiki/extensions/UsersEditCount"]
 	path = wiki/extensions/UsersEditCount
 	url = https://github.com/uesp/uesp-wiki-usereditcount.git
+[submodule "wiki/config"]
+	path = wiki/config
+	url = https://github.com/uesp/uesp-wikiconfig
