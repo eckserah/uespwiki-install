@@ -19,3 +19,6 @@
 [submodule "wiki/extensions/WikiAppApi"]
 	path = wiki/extensions/WikiAppApi
 	url = https://github.com/uesp/wikiappapi
+[submodule "wiki/extensions/EsoCharData"]
+	path = wiki/extensions/EsoCharData
+	url = https://github.com/uesp/uesp-wiki-esochardata
