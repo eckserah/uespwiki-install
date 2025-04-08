@@ -47,3 +47,6 @@
 [submodule "wiki/extensions/DailyEdits"]
 	path = wiki/extensions/DailyEdits
 	url = https://github.com/uesp/uesp-wikidailyedits
+[submodule "wiki/extensions/UespShortLinks"]
+	path = wiki/extensions/UespShortLinks
+	url = https://github.com/uesp/uesp-wiki-shortlinks
