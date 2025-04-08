@@ -4,3 +4,6 @@
 [submodule "wiki/skins/UespVector"]
 	path = wiki/skins/UespVector
 	url = https://github.com/uesp/wikiuespvector.git
+[submodule "wiki/extensions/UespCustomCode"]
+	path = wiki/extensions/UespCustomCode
+	url = https://github.com/uesp/uesp-wikicustomcode.git
