@@ -25,3 +25,6 @@
 [submodule "wiki/extensions/UespBreadCrumb"]
 	path = wiki/extensions/UespBreadCrumb
 	url = https://github.com/uesp/uesp-wikibreadcrumb
+[submodule "wiki/extensions/PageSpeedLog"]
+	path = wiki/extensions/PageSpeedLog
+	url = https://github.com/uesp/wiki-pagespeedlog
