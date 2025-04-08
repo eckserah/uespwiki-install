@@ -53,3 +53,6 @@
 [submodule "wiki/extensions/ParserHelper"]
 	path = wiki/extensions/ParserHelper
 	url = https://github.com/uesp/ParserHelper
+[submodule "wiki/extensions/Riven"]
+	path = wiki/extensions/Riven
+	url = https://github.com/uesp/Riven
