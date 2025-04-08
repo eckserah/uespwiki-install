@@ -65,3 +65,6 @@
 [submodule "wiki/extensions/SearchLog"]
 	path = wiki/extensions/SearchLog
 	url = https://github.com/uesp/uesp-wiki-searchlog
+[submodule "wiki/extensions/JobQueue"]
+	path = wiki/extensions/JobQueue
+	url = https://github.com/uesp/uesp-wikijobqueue
