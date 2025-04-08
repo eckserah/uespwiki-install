@@ -38,3 +38,6 @@
 [submodule "wiki/extensions/UespEsoSkills"]
 	path = wiki/extensions/UespEsoSkills
 	url = https://github.com/uesp/uesp-wiki-esoskills
+[submodule "wiki/extensions/UespGameMap"]
+	path = wiki/extensions/UespGameMap
+	url = https://github.com/uesp/uesp-wikigamemap
