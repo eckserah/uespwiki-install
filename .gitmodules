@@ -56,3 +56,6 @@
 [submodule "wiki/extensions/Riven"]
 	path = wiki/extensions/Riven
 	url = https://github.com/uesp/Riven
+[submodule "wiki/extensions/UespEsoData"]
+	path = wiki/extensions/UespEsoData
+	url = https://github.com/uesp/uesp-wikiesodata
