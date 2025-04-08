@@ -44,3 +44,6 @@
 [submodule "wiki/extensions/MetaTemplate"]
 	path = wiki/extensions/MetaTemplate
 	url = https://github.com/uesp/uesp-wikimetatemplate
+[submodule "wiki/extensions/DailyEdits"]
+	path = wiki/extensions/DailyEdits
+	url = https://github.com/uesp/uesp-wikidailyedits
